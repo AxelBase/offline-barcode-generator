@@ -1,0 +1,192 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+/* Ensure Bootstrap Icons are loaded via HTML or import here if using SASS */
+
+/* --- Variables (Light Mode Default) --- */
+:root {
+  --primary-navy: #1A2A6C;
+  --primary-bg: #f4f7f6; /* Soft gray-blue */
+  
+  /* Glassmorphism Variables */
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.9);
+  --glass-shadow: 0 8px 32px 0 rgba(26, 42, 108, 0.1);
+  
+  --color-text-main: #1A2A6C;
+  --color-text-muted: #546e7a;
+  
+  --color-accent: #2a48b3;
+  --color-accent-hover: #1A2A6C;
+  
+  --input-bg: rgba(255, 255, 255, 0.8);
+  --blob-color-1: #dbeafe; /* Light Blue */
+  --blob-color-2: #bfdbfe; /* Slightly darker blue */
+
+  --radius-bubbly: 30px;
+  
+  /* Bootstrap Overrides */
+  --bs-body-bg: var(--primary-bg);
+  --bs-body-color: var(--color-text-main);
+}
+
+/* --- Dark Mode Overrides (The Classic AxelBase Navy Theme) --- */
+[data-bs-theme="dark"] {
+  --primary-bg: #0f1535; /* Very Dark Navy */
+  
+  --glass-bg: rgba(26, 42, 108, 0.45); /* Navy Glass */
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  
+  --color-text-main: #f1f5f9;
+  --color-text-muted: #94a3b8;
+  
+  --color-accent: #4a90e2; /* Brighter blue for contrast */
+  --color-accent-hover: #63a4ff;
+  
+  --input-bg: rgba(15, 23, 42, 0.4);
+  --blob-color-1: #1A2A6C; /* Navy */
+  --blob-color-2: #0d1b4d; /* Darker Navy */
+}
+
+/* --- Global & Reset --- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+  background: var(--primary-bg);
+  color: var(--color-text-main);
+  transition: background-color 0.5s ease, color 0.5s ease;
+  padding-bottom: 80px; /* Space for footer */
+}
+
+/* --- Animated Background Blobs --- */
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  width: 70vw;
+  height: 70vw;
+  border-radius: 50%;
+  z-index: -1;
+  filter: blur(80px);
+  opacity: 0.6;
+  animation: floatBlob 25s infinite alternate ease-in-out;
+  transition: background-color 0.5s ease;
+}
+
+body::before {
+  background: var(--blob-color-1);
+  top: -20%;
+  left: -20%;
+}
+
+body::after {
+  background: var(--blob-color-2);
+  bottom: -20%;
+  right: -20%;
+  animation-delay: -12s;
+}
+
+@keyframes floatBlob {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(50px, 50px) scale(1.1); }
+}
+
+/* --- Glassmorphism Utilities --- */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  transition: background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--radius-bubbly);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Inputs & Form Elements --- */
+.form-control, .form-select {
+  background-color: var(--input-bg) !important;
+  border: 1px solid var(--glass-border) !important;
+  color: var(--color-text-main) !important;
+  border-radius: 15px;
+  padding: 10px 15px;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+  background-color: var(--input-bg) !important;
+  box-shadow: 0 0 0 4px rgba(42, 72, 179, 0.15);
+  border-color: var(--color-accent) !important;
+}
+
+/* --- Typography --- */
+h1, h2, h3 {
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: var(--color-text-main);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.text-white-50 {
+    /* Override Bootstrap for better dark/light compatibility */
+    color: var(--color-text-muted) !important;
+}
+
+/* --- Buttons (Bubbly) --- */
+.btn {
+  border-radius: 50px;
+  padding: 10px 25px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  font-weight: 600;
+  border: none;
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-accent) 0%, #1A2A6C 100%);
+  color: white;
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #42e695 0%, #3bb2b8 100%);
+  color: #0f1535;
+}
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 10px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+
+/* --- Navbar Specifics --- */
+.navbar-brand-text {
+    color: var(--color-text-main);
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}

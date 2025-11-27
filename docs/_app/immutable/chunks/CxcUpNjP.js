@@ -1,0 +1,1 @@
+import{i as o,j as u,X as _,l as t,o as g,C as p,S as l,x as a,k as d,y as m}from"./D86OWAa_.js";function E(n,r){let s=null,y=t;var i;if(t){s=m;for(var e=g(document.head);e!==null&&(e.nodeType!==p||e.data!==n);)e=l(e);if(e===null)a(!1);else{var f=l(e);e.remove(),d(f)}}t||(i=document.head.appendChild(o()));try{u(()=>r(i),_)}finally{y&&(a(!0),d(s))}}export{E as h};
