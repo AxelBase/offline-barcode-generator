@@ -340,7 +340,7 @@
 
     <p class="italic-note text-center mt-5 fs-5">
       <em>Still have a question?<br>
-      <a href="https://github.com/axelbase/offline-barcode-generator/issues" target="_blank" class="text-decoration-underline">Open an issue on GitHub</a> — we answer fast.</em>
+      <a href="https://github.com/axelbase/offline-barcode-generator/" target="_blank" class="text-decoration-underline">Open an issue on GitHub</a> — we answer fast.</em>
     </p>
   </div>
 </section>
