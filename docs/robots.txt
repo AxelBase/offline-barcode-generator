@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://axelbase.github.io/offline-barcode-generator/sitemap.xml
+Sitemap: https://offline-barcode-generator.vercel.app/sitemap.xml
